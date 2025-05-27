@@ -6,13 +6,13 @@ error_reporting(E_ALL);
 
 // Database connection
 $servername = "localhost";
-$username = "contact-book";
-$password = "C0nt4ct-B00k";
+$username = "root";
+$password = "";
 $dbname = "contacts_db";
 
 // Local dev
 $username = "root";
-$password = "root";
+$password = "";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
