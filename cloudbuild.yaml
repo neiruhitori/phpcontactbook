@@ -7,6 +7,25 @@ steps:
       - 'myvm-1-nailul'
       - '--zone=asia-southeast2-a'
       - '--command=sudo apt-get update && sudo apt-get install -y mysql-server php-mysql && sudo systemctl restart apache2'
+
+  # Step 1: Create directory if not exists and deploy the application
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'myvm-1-nailul'
+      - '--zone=asia-southeast2-a'
+      - '--command=sudo mkdir -p /var/www/html/contacts && cd /var/www/html/contacts && git pull origin main'
+
+  # Step 2: Database migration
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'myvm-1-nailul'
+      - '--zone=asia-southeast2-a'
+      - '--command=sudo mysql -u root < /var/www/html/contacts/data.sql'
+
 timeout: '1200s'
 
 options:
