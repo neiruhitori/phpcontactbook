@@ -227,7 +227,7 @@ $result = $conn->query($sql);
 <body>
 
     <div class="container">
-        <h2>PHP ContactBook</h2>
+        <h2>PHP ContactBook Brr</h2>
         <h4 style="font-style: italic;">Simple contact management app written in PHP</h4>
         <?php if (isset($message)): ?>
             <div class="notification"><?php echo $message; ?></div>
